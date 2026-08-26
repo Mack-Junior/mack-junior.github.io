@@ -1,0 +1,44 @@
+<html>
+<body>
+  <h2>Bem-vindo ao saite oficial do</h2>
+
+  <img
+    id="logo"
+    width="300"
+    height="70"
+    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Clube_de_Regatas_do_Flamengo_logo.svg/1920px-Clube_de_Regatas_do_Flamengo_logo.svg.png"
+  >
+
+  <div style="display: flex; align-items: center; gap: 8px;">
+    <h1 id="contador">0</h1>
+    <h2>reais investidos</h2>
+  </div>
+
+  <button onclick="investir()">Investir 1 real no time</button>
+
+  <h2 id="obrigado"></h2>
+
+  <script>
+    let valor = 0;
+
+    const elemento = document.getElementById("contador");
+    const obrigado = document.getElementById("obrigado");
+    const logo = document.getElementById("logo");
+
+    function investir() {
+      valor++;
+      elemento.textContent = valor;
+
+      if (valor == 20) {
+        document.body.style.backgroundColor = "black";
+        document.body.style.color = "red";
+
+        logo.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQReVqn2BvXP8fwH9SVnVQOJAD1DNfXVa5W4Q&s";
+
+        obrigado.textContent =
+          "Obrigradu otaru, aqui é o saite do palmeiraz e nao du flamengo";
+      }
+    }
+  </script>
+</body>
+</html>
