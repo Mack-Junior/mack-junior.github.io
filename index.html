@@ -366,6 +366,71 @@
     </p>
 
   </footer>
+  
+  <script>
+  let cliques = 0;
+  let ultimoClique = 0;
+
+  const titulo = document.querySelector("h1");
+
+  titulo.addEventListener("click", () => {
+    const agora = Date.now();
+
+    if (agora - ultimoClique > 2000) {
+      cliques = 0;
+    }
+
+    ultimoClique = agora;
+    cliques++;
+
+    if (cliques === 5) {
+      titulo.style.pointerEvents = "none";
+
+      // H1 desaparece e achata
+      titulo.style.transition =
+        "opacity 1.5s ease, transform 1.5s ease";
+
+      titulo.style.opacity = "0";
+      titulo.style.transform = "scaleX(0.1)";
+
+      setTimeout(() => {
+
+        titulo.innerHTML = `
+          <img
+  src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Clube_de_Regatas_do_Flamengo_logo.svg/1920px-Clube_de_Regatas_do_Flamengo_logo.svg.png"
+  alt="Flamengo"
+  style="
+    width: 400px !important;
+    height: 50px !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: fill !important;
+    display: block;
+  "
+>
+        `;
+
+        titulo.style.opacity = "0";
+        titulo.style.transform = "scaleX(0.1)";
+
+        // Escudo aparece e vai se esticando
+        setTimeout(() => {
+          titulo.style.transition =
+            "opacity 1.5s ease, transform 2s ease";
+
+          titulo.style.opacity = "1";
+          titulo.style.transform = "scaleX(1)";
+        }, 50);
+
+        // Redireciona depois da animação
+        setTimeout(() => {
+          window.location.href = "/flamengo";
+        }, 2500);
+
+      }, 1500);
+    }
+  });
+</script>
 
 </body>
 
